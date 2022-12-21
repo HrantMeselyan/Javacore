@@ -21,7 +21,7 @@ public class IfForExample {
         }
         System.out.println();
 
-        int h = 77;
+        int h = 88;
         char e = (char) h;
 
         System.out.println(e);
