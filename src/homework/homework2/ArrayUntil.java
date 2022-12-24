@@ -2,14 +2,14 @@ package homework.homework2;
 
 public class ArrayUntil {
     public static void main(String[] args) {
-        int[] array = {2, 5, 8, 10, 32, 22, 11, 66, 12, 30, 1};
+        int[] array = {2, 5, 8, 10, 32, 22,  66, 12, 30, 0, 44,-9};
 
         for (int i = 0; i < array.length; i++) {
             System.out.print(array[i] + " ");
         }
         System.out.println();
 
-        int a = 0;
+        int a = array[0];
 
         for (int i = 0; i < array.length; i++) {
             if (array[i] > a) {
@@ -19,15 +19,13 @@ public class ArrayUntil {
         }
         System.out.println("max =  " + a);
 
-
-
-
+        int u  = 18;
         for (int i = 0; i < array.length; i++) {
-            if (a > array[i]) {
-               a = array[i];
+            if (u > array[i]) {
+                u = array[i];
 
             }
         }
-        System.out.println("min =  " + a);
+        System.out.println("min = " + u);
     }
 }
