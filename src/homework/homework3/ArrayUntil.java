@@ -17,7 +17,7 @@ public class ArrayUntil {
         System.out.println();
         System.out.print("Կենտ թվերն են  ");
         for (int i = 0; i < array.length; i++) {
-            if (array[i] % 2 == 1 | array[i] % 2 == -1) {
+            if (array[i] % 2 == 1 || array[i] % 2 == -1) {
                 System.out.print(array[i] + " ");
                 b++;
             }
@@ -30,7 +30,7 @@ public class ArrayUntil {
         for (int i = 0; i < array.length; i++) {
             num = array[i] + num;
         }
-        System.out.println("Միջին թվաբանականը" + num / array.length);
+        System.out.println("Միջին թվաբանականը " + num / array.length);
         System.out.println("Բոլոր թվերի գումարը " + num);
         System.out.println("Մջտեղի անդամը " + array[array.length / 2]);
         System.out.println("Առաջին անդամը " + array[0]);
