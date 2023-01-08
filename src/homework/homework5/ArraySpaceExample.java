@@ -15,7 +15,7 @@ public class ArraySpaceExample {
             }
         }
 
-        for (int i = spaceArray.length - 1; i >= 0; i--) {
+        for (int i = spaceArray.length -1; i > 0; i--) {
             if (spaceArray[i] == ' ') {
                 indexTwo--;
             } else {
