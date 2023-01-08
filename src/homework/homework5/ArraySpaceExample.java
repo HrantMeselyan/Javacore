@@ -7,21 +7,14 @@ public class ArraySpaceExample {
         int indexOne = 0;
         int indexTwo = spaceArray.length - 1;
 
-        for (int i = 0; i < spaceArray.length; i++) {
-            if (spaceArray[i] == ' ') {
-                indexOne++;
-            } else {
-                break;
-            }
+
+        while (indexOne < spaceArray.length && spaceArray[indexOne] == ' ') {
+            indexOne++;
+        }
+        while (indexTwo >= 0 && spaceArray[indexTwo] == ' ') {
+            indexTwo--;
         }
 
-        for (int i = spaceArray.length - 1; i > 0; i--) {
-            if (spaceArray[i] == ' ') {
-                indexTwo--;
-            } else {
-                break;
-            }
-        }
         char[] resultChars = new char[indexTwo - indexOne + 1];
         for (int i = 0; i < resultChars.length; i++) {
             resultChars[i] = spaceArray[indexOne];
