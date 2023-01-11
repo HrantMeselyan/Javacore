@@ -1,7 +1,7 @@
 package homework.homework6;
 
 
-public class homework6 {
+public class ArrayUntilDemo {
     public static void main(String[] args) {
         ArrayUntil array = new ArrayUntil();
         int[] arr = {2, 5, 8, 10, 32, 22, 66, 12, 30, 0, 44, -9, 3, 11, -2,109,108};
