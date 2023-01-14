@@ -5,14 +5,12 @@ public class ArrayUntil {
 
     void even(int[] array) {
 
-
         System.out.print("Զույգ թվերն են ");
         for (int i = 0; i < array.length; i++) {
             if (array[i] % 2 == 0) {
                 System.out.print(array[i] + " ");
 
             }
-
         }
     }
 

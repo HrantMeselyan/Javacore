@@ -15,8 +15,8 @@ public class ArraySort {
                 }
             }
         }
-        for (int i = 0; i < numbers.length; i++) {
-            System.out.print(numbers[i] + " ");
+        for (int x : numbers) {
+            System.out.print(x + " ");
         }
 
         System.out.println();
@@ -31,8 +31,8 @@ public class ArraySort {
                 }
             }
         }
-        for (int i = 0; i < numbers.length; i++) {
-            System.out.print(numbers[i] + " ");
+        for (int x : numbers) {
+            System.out.print(x + " ");
         }
 
 

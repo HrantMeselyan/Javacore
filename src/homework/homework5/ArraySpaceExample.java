@@ -8,10 +8,10 @@ public class ArraySpaceExample {
         int indexTwo = spaceArray.length - 1;
 
 
-        while (indexOne < spaceArray.length && spaceArray[indexOne] == ' ') {
+        while (spaceArray[indexOne] == ' ') {
             indexOne++;
         }
-        while (indexTwo >= 0 && spaceArray[indexTwo] == ' ') {
+        while (spaceArray[indexTwo] == ' ') {
             indexTwo--;
         }
 
