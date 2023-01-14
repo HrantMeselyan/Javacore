@@ -1,9 +1,6 @@
 package homework.homework7;
 
 public class Calculator {
-    int firstNumber;
-    int secondNumber;
-
 
     int plus(int firstNumber, int secondNumber) {
         return firstNumber + secondNumber;

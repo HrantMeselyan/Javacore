@@ -10,7 +10,7 @@ public class CalculatorDemo {
         sum = result.minus(6, 99);
         System.out.println("minus : " + sum);
 
-        sum = result.divide(900, 0);
+        sum = result.divide(900, 2);
         System.out.println("divide : " + sum);
 
         sum = result.multiply(80, 2);
