@@ -9,5 +9,7 @@ public class DynamicArrayDemo {
              array.add(i);
         }
         array.print();
+        System.out.println();
+        System.out.println(array.get(0));
     }
 }
