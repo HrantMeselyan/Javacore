@@ -1,7 +1,7 @@
 package homework.homework8;
 
 public class DynamicArray {
-    private int array[] = new int[10];
+    private int[] array = new int[10];
     private int size;
 
 
@@ -26,8 +26,8 @@ public class DynamicArray {
     }
 
     public void extend() {
-        int array2[] = new int[array.length + 10];
-        for (int i = 0; i < size; i++) {
+        int[] array2 = new int[array.length + 10];
+        for (int i = 0; i < array.length; i++) {
             array2[i] = array[i];
         }
         array = array2;
