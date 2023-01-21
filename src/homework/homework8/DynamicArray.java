@@ -13,7 +13,7 @@ public class DynamicArray {
     }
 
     public int get(int index) {
-        if (index >= array.length || index < 0) {
+        if (index > size || index < 0) {
             return -1;
         }
         return array[index];
