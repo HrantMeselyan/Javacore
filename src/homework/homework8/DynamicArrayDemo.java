@@ -19,7 +19,7 @@ public class DynamicArrayDemo {
         array.set(1, 7);
 
         System.out.println();
-        array.add(4, 47);
+        array.add(1, 47);
 
         System.out.println();
         System.out.println(array.exists(0));

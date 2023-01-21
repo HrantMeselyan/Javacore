@@ -56,18 +56,21 @@ public class DynamicArray {
     }
 
     public void add(int index, int value) {
-        if (array.length > size) {
-            extend();
+        if (index > size || index < 0) {
+            System.out.println("Index Not Found");
+        } else {
+            if (array.length > size) {
+                extend();
+            }
+            for (int i = size; i > index; i--) {
+                int c = array[i];
+                array[i + 1] = array[i];
+            }
+            int a = array[index];
+            array[index] = value;
+            array[index + 1] = a;
+            print();
         }
-        for (int i = size; i > index; i--) {
-            int c = array[i];
-            array[i + 1] = array[i];
-        }
-
-        int a = array[index];
-        array[index] = value;
-        array[index + 1] = a;
-        print();
     }
 
     public boolean exists(int value) {
