@@ -68,6 +68,7 @@ public class DynamicArray {
             int a = array[index];
             array[index] = value;
             array[index + 1] = a;
+            size++;
             print();
         }
     }
