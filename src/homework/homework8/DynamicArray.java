@@ -63,7 +63,6 @@ public class DynamicArray {
                 extend();
             }
             for (int i = size; i > index; i--) {
-                int c = array[i];
                 array[i + 1] = array[i];
             }
             int a = array[index];
