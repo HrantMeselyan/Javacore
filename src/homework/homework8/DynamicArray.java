@@ -46,7 +46,7 @@ public class DynamicArray {
     }
 
     public void set(int index, int value) {
-        if (index <= 0 || index > size) {
+        if (index < 0 || index >= size) {
             System.out.println("Index Not Found");
         } else {
             array[index] = value;

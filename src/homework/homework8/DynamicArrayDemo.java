@@ -19,7 +19,7 @@ public class DynamicArrayDemo {
         System.out.println();
 
         System.out.print("Set Element : ");
-        array.set(1, 7);
+        array.set(0, 7);
         System.out.println();
 
         System.out.print("Add Element : ");
