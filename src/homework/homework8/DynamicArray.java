@@ -56,7 +56,7 @@ public class DynamicArray {
     }
 
     public void add(int index, int value) {
-        if (index >= size || index < 0) {
+        if (index >=  size || index < 0) {
             System.out.println("Index Not Found");
         } else {
             if (size == array.length) {
