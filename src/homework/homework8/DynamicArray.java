@@ -59,7 +59,7 @@ public class DynamicArray {
         if (index > size || index < 0) {
             System.out.println("Index Not Found");
         } else {
-            if (size + 1 == array.length) {
+            if (size  == array.length) {
                 extend();
             }
             for (int i = size; i > index; i--) {
