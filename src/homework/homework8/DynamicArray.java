@@ -59,7 +59,7 @@ public class DynamicArray {
         if (index > size || index < 0) {
             System.out.println("Index Not Found");
         } else {
-            if (size  == array.length) {
+            if (size == array.length) {
                 extend();
             }
             for (int i = size; i > index; i--) {
@@ -72,12 +72,13 @@ public class DynamicArray {
     }
 
     public boolean exists(int value) {
+        boolean exist = false;
         for (int i : array) {
             if (value == i) {
-                return true;
+                exist = true;
             }
         }
-        return false;
+        return exist;
     }
 
     public int getIndexByValue(int value) {
