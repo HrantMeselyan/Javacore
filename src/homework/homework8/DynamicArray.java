@@ -61,8 +61,8 @@ public class DynamicArray {
         } else {
             if (size == array.length) {
                 extend();
+                size++;
             }
-            size++;
             for (int i = size; i > index; i--) {
                 array[i] = array[i - 1];
             }

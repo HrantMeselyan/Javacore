@@ -15,7 +15,7 @@ public class DynamicArrayDemo {
         System.out.println("Get Element By Index : " + array.get(10));
 
         System.out.print("Delete Element By Index : ");
-        array.delete(40);
+        array.delete(30);
         System.out.println();
 
         System.out.print("Set Element : ");
