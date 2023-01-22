@@ -31,6 +31,5 @@ public class DynamicArrayDemo {
 
         System.out.println("Get Value Index : " + array.getIndexByValue(47));
 
-
     }
 }
