@@ -51,7 +51,6 @@ public class DynamicArray {
             return;
         }
         array[index] = value;
-
     }
 
     public void add(int index, int value) {
@@ -74,6 +73,7 @@ public class DynamicArray {
         for (int i : array) {
             if (value == i) {
                 exist = true;
+                break;
             }
         }
         return exist;
@@ -86,6 +86,5 @@ public class DynamicArray {
             }
         }
         return -1;
-
     }
 }
