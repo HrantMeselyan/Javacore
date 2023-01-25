@@ -1,10 +1,8 @@
 package homework.homework9;
 
-import java.sql.SQLOutput;
-
 public class BraceCheckerTest {
     public static void main(String[] args) {
-        String text = "{hello} java {}";
+        String text = "[hell] java {ano}  (hot)";
         BraceChecker bc = new BraceChecker(text);
         bc.check();
 

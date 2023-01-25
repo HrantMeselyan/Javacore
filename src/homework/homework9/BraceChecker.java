@@ -3,42 +3,36 @@ package homework.homework9;
 public class BraceChecker {
     private String text;
 
-    BraceChecker(String text) {
+    public BraceChecker(String text) {
         this.text = text;
     }
 
-    void check() {
-
-        Stack stack1 = new Stack();
+    public void check() {
+        Stack stack = new Stack();
         for (int i = 0; i < text.length(); i++) {
-            stack1.push(i);
-            if (text.charAt(i) == '{') {
-                char b  = text.charAt(i);
-                System.out.print(b);
-                for (int j = i + 1; j < text.length(); j++) {
-                    if (text.charAt(j) == '}'){
-                        char a = text.charAt(j);
-                        System.out.print(a);
-                        break;
-                    }
+            char first = text.charAt(i);
+            if (first == '{' || first == '[' || first == '(') {
+                stack.push(first);
+            }
+            if (first == '}' || first == ']' || first == ')') {
+                if (stack.tos == -1) {
+                    System.out.println("Error: " + first + " at index " + i);
+                    return;
+                }
+                int last = stack.pop();
+                stack.push(last);
+
+                if (first == '}' && last == '{' || first == ')' && last == '(' || first == ']' && last == '[') {
+                    stack.pop();
+                } else {
+                    char firstSymbol = (char) last;
+                    System.out.println("Error: Opened " + firstSymbol + " but closed " + first + " at index " + i);
+                    return;
                 }
             }
         }
-    }
-
-    private void findIndex() {
-        Stack stack = new Stack();
-        int b = stack.pop();
-        char a = text.charAt(b);
-        char c = text.charAt(0);
-        System.out.println(c + " " + a);
-
-        if (c == '{') {
-            if (a == '}') {
-                System.out.println(true);
-            } else {
-                System.out.println(false);
-            }
+        if (stack.tos == -1) {
+            System.out.println("Text is a correct");
         }
     }
 }
