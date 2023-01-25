@@ -5,6 +5,5 @@ public class BraceCheckerTest {
         String text = " {hell} java {ano}  (hot)";
         BraceChecker bc = new BraceChecker(text);
         bc.check();
-
     }
 }
