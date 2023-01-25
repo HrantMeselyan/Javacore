@@ -16,7 +16,7 @@ public class BraceChecker {
             }
             if (first == '}' || first == ']' || first == ')') {
                 if (stack.tos == -1) {
-                    System.out.println("Error: " + first + " at index " + i);
+                    System.out.println("Error: Closed " + first + " at " + i + " but did not opened");
                     return;
                 }
                 int last = stack.pop();
@@ -26,7 +26,7 @@ public class BraceChecker {
                     stack.pop();
                 } else {
                     char firstSymbol = (char) last;
-                    System.out.println("Error: Opened " + firstSymbol + " but closed " + first + " at index " + i);
+                    System.out.println("Error: Opened " + firstSymbol + " but closed " + first + " at  " + i);
                     return;
                 }
             }
