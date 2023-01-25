@@ -16,7 +16,6 @@ public class BraceChecker {
             }
             if (first == '}' || first == ']' || first == ')') {
                 if (stack.tos == -1) {
-                    System.out.println("Error: Closed " + first + " at " + i + " but did not opened");
                     return;
                 }
                 int last = stack.pop();
