@@ -14,6 +14,16 @@ public class BraceChecker {
             if (first == '{' || first == '[' || first == '(') {
                 stack.push(first);
             }
+            if (first == ' ' && stack.tos != -1) {
+                int last = stack.pop();
+                stack.push(last);
+                char firstSymbol = (char) last;
+                if (first == ' ' && last == '{' || first == ' ' && last == '(' || first == ' ' && last == '[') {
+
+                    System.out.println("Error: Opened by " + firstSymbol + " but not closed");
+                    return;
+                }
+            }
             if (first == '}' || first == ']' || first == ')') {
                 if (stack.tos == -1) {
                     System.out.println("Error : Closed by  " + first + " but not opened at " + i);
@@ -28,13 +38,6 @@ public class BraceChecker {
                     System.out.println("Error: Opened by " + firstSymbol + " but closed " + first + " at  " + i);
                     return;
                 }
-            }
-            int last = stack.pop();
-            stack.push(last);
-            char firstSymbol = (char) last;
-            if (first == ' ') {
-                System.out.println("Error : Opened by " + firstSymbol + " but not closed " + " at  " + i);
-                return;
             }
         }
         if (stack.tos == -1) {
