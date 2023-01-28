@@ -16,18 +16,25 @@ public class BraceChecker {
             }
             if (first == '}' || first == ']' || first == ')') {
                 if (stack.tos == -1) {
+                    System.out.println("Error : Closed by  " + first + " but not opened at " + i);
                     return;
                 }
                 int last = stack.pop();
                 stack.push(last);
-
+                char firstSymbol = (char) last;
                 if (first == '}' && last == '{' || first == ')' && last == '(' || first == ']' && last == '[') {
                     stack.pop();
                 } else {
-                    char firstSymbol = (char) last;
-                    System.out.println("Error: Opened " + firstSymbol + " but closed " + first + " at  " + i);
+                    System.out.println("Error: Opened by " + firstSymbol + " but closed " + first + " at  " + i);
                     return;
                 }
+            }
+            int last = stack.pop();
+            stack.push(last);
+            char firstSymbol = (char) last;
+            if (first == ' ') {
+                System.out.println("Error : Opened by " + firstSymbol + " but not closed " + " at  " + i);
+                return;
             }
         }
         if (stack.tos == -1) {
