@@ -7,41 +7,32 @@ public class BraceChecker {
         this.text = text;
     }
 
-    public void check() {
+    public boolean check() {
         Stack stack = new Stack();
         for (int i = 0; i < text.length(); i++) {
-            char first = text.charAt(i);
-            if (first == '{' || first == '[' || first == '(') {
-                stack.push(first);
-            }
-            if (first == ' ' && stack.tos != -1) {
-                int last = stack.pop();
-                stack.push(last);
-                char firstSymbol = (char) last;
-                if (first == ' ' && last == '{' || first == ' ' && last == '(' || first == ' ' && last == '[') {
-
-                    System.out.println("Error: Opened by " + firstSymbol + " but not closed");
-                    return;
-                }
-            }
-            if (first == '}' || first == ']' || first == ')') {
+            char c = text.charAt(i);
+            if (c == '{' || c == '[' || c == '(') {
+                stack.push(c);
+            } else if (c == '}' || c == ']' || c == ')') {
                 if (stack.tos == -1) {
-                    System.out.println("Error : Closed by  " + first + " but not opened at " + i);
-                    return;
+                    System.out.println("Error : Closed By "  + c + " but not opened at index " + i);
+                    return false;
                 }
-                int last = stack.pop();
-                stack.push(last);
-                char firstSymbol = (char) last;
-                if (first == '}' && last == '{' || first == ')' && last == '(' || first == ']' && last == '[') {
-                    stack.pop();
-                } else {
-                    System.out.println("Error: Opened by " + firstSymbol + " but closed " + first + " at  " + i);
-                    return;
+                int top = stack.pop();
+                char first = (char) top;
+                if ((c == '}' && first != '{') || (c == ']' && first != '[') || (c == ')' && first != '(')) {
+                    System.out.println("Error : Opened By " + first + " but closed by " + c + " at index " + i);
+                    return false;
                 }
             }
         }
-        if (stack.tos == -1) {
-            System.out.println("Text is a correct");
+        if (stack.tos != -1) {
+            int c = stack.pop();
+            char symbol = (char) c;
+            System.out.println("Error: Opened By " + symbol + " but not closed");
+            return false;
         }
+        System.out.println("Text is a correct");
+        return true;
     }
 }
