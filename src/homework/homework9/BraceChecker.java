@@ -7,7 +7,7 @@ public class BraceChecker {
         this.text = text;
     }
 
-    public boolean check() {
+    public void check() {
         Stack stack = new Stack();
         for (int i = 0; i < text.length(); i++) {
             char c = text.charAt(i);
@@ -15,14 +15,14 @@ public class BraceChecker {
                 stack.push(c);
             } else if (c == '}' || c == ']' || c == ')') {
                 if (stack.tos == -1) {
-                    System.out.println("Error : Closed By "  + c + " but not opened at index " + i);
-                    return false;
+                    System.out.println("Error : Closed By " + c + " but not opened at index " + i);
+                    return;
                 }
                 int top = stack.pop();
                 char first = (char) top;
                 if ((c == '}' && first != '{') || (c == ']' && first != '[') || (c == ')' && first != '(')) {
                     System.out.println("Error : Opened By " + first + " but closed by " + c + " at index " + i);
-                    return false;
+                    return;
                 }
             }
         }
@@ -30,9 +30,9 @@ public class BraceChecker {
             int c = stack.pop();
             char symbol = (char) c;
             System.out.println("Error: Opened By " + symbol + " but not closed");
-            return false;
+            return;
         }
         System.out.println("Text is a correct");
-        return true;
+        return;
     }
 }
