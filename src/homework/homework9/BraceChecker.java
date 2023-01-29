@@ -1,14 +1,14 @@
 package homework.homework9;
 
 public class BraceChecker {
-    private String text;
+    private final String text;
+    private final Stack stack = new Stack();
 
     public BraceChecker(String text) {
         this.text = text;
     }
 
     public void check() {
-        Stack stack = new Stack();
         for (int i = 0; i < text.length(); i++) {
             char c = text.charAt(i);
             if (c == '{' || c == '[' || c == '(') {
@@ -33,6 +33,5 @@ public class BraceChecker {
             return;
         }
         System.out.println("Text is a correct");
-        return;
     }
 }
