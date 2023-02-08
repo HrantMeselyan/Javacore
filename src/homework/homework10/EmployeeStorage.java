@@ -42,7 +42,18 @@ public class EmployeeStorage {
         if (!found) {
             System.out.println("employee" + ID + "does not exits");
         }
+    }
 
+    public boolean checkID(String id) {
+        boolean check = true;
+        for (int i = 0; i < size; i++) {
+            Employee employee = array[i];
+            String tmp = employee.getEmplyeeID();
+            if (id.equals(tmp)) {
+                check = false;
+            }
+        }
+        return check;
     }
 
     public void searchByCompanyName(String companyNameSearch) {
