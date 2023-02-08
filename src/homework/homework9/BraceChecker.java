@@ -32,6 +32,6 @@ public class BraceChecker {
             System.out.println("Error: Opened By " + symbol + " but not closed");
             return;
         }
-        System.out.println("Text is a correct");
+        System.out.println("Text is a correct ");
     }
 }
