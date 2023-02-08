@@ -51,7 +51,7 @@ public class EmployeeStorage {
             Employee employee = array[i];
             if (employee.getCompany().toLowerCase().contains(companyNameSearch.toLowerCase())) {
                 found = true;
-                System.out.println(employee.getName() + employee.getSurname());
+                System.out.println(employee.getName() + " " + employee.getSurname());
             }
         }
         if (!found) {
