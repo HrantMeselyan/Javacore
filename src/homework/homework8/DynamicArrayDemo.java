@@ -5,7 +5,7 @@ public class DynamicArrayDemo {
     public static void main(String[] args) {
         DynamicArray array = new DynamicArray();
 
-        for (int i = 0; i < 30; i++) {
+        for (int i = 0; i < 25; i++) {
             array.add(i);
         }
         System.out.print("Array : ");
