@@ -45,10 +45,10 @@ public class EmployeeStorage {
             Employee employee = array[i];
             String tmp = employee.getID();
             if (id.equals(tmp)) {
-                return id;
+               return null;
             }
         }
-        return null;
+        return id;
     }
 
     public void lastCheck() {
