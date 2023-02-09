@@ -23,19 +23,15 @@ public class EmployeeDemo {
                     String name = scanner.nextLine();
                     System.out.println("please input surname");
                     String surname = scanner.nextLine();
-                    System.out.println("please input author ID");
+                    System.out.println("please input author id");
                     String id = scanner.nextLine();
-                    if (!employeeStorage.checkID(id)) {
-                        System.out.println("please input another ID");
-                        break;
-                    }
                     System.out.println("please input salary");
                     String salary = scanner.nextLine();
                     System.out.println("Please input company name");
                     String companyName = scanner.nextLine();
                     System.out.println("Please input position");
                     String position = scanner.nextLine();
-                    Employee employee = new Employee(name, surname, id, Double.parseDouble(salary), companyName, position);
+                    Employee employee = new Employee(name, surname, employeeStorage.checkID(id), Double.parseDouble(salary), companyName, position);
                     employeeStorage.add(employee);
                     break;
                 case "2":
