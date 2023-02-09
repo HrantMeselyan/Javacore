@@ -45,7 +45,7 @@ public class EmployeeStorage {
             Employee employee = array[i];
             String tmp = employee.getID();
             if (id.equals(tmp)) {
-                return id + i;
+                return null;
             }
         }
         return id;
