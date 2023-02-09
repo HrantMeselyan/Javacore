@@ -5,16 +5,16 @@ import java.util.Objects;
 public class Employee {
     private String name;
     private String surname;
-    private String emplyeeID;
+    private String id;
     private double salary;
     private String company;
     private String position;
 
 
-    public Employee(String name, String surname, String emplyeeID, double salary, String company, String position) {
+    public Employee(String name, String surname, String id, double salary, String company, String position) {
         this.name = name;
         this.surname = surname;
-        this.emplyeeID = emplyeeID;
+        this.id = id;
         this.salary = salary;
         this.company = company;
         this.position = position;
@@ -28,12 +28,12 @@ public class Employee {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Employee employee = (Employee) o;
-        return Double.compare(employee.salary, salary) == 0 && Objects.equals(name, employee.name) && Objects.equals(surname, employee.surname) && Objects.equals(emplyeeID, employee.emplyeeID) && Objects.equals(company, employee.company) && Objects.equals(position, employee.position);
+        return Double.compare(employee.salary, salary) == 0 && Objects.equals(name, employee.name) && Objects.equals(surname, employee.surname) && Objects.equals(id, employee.id) && Objects.equals(company, employee.company) && Objects.equals(position, employee.position);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, surname, emplyeeID, salary, company, position);
+        return Objects.hash(name, surname, id, salary, company, position);
     }
 
     @Override
@@ -41,7 +41,7 @@ public class Employee {
         return "Employee{" +
                 "name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
-                ", emplyeeID='" + emplyeeID + '\'' +
+                ", id='" + id + '\'' +
                 ", salary=" + salary +
                 ", company='" + company + '\'' +
                 ", position='" + position + '\'' +
@@ -64,12 +64,12 @@ public class Employee {
         this.surname = surname;
     }
 
-    public String getEmplyeeID() {
-        return emplyeeID;
+    public String getID() {
+        return id;
     }
 
-    public void setEmplyeeID(String emplyeeID) {
-        this.emplyeeID = emplyeeID;
+    public void setID(String id) {
+        this.id = id;
     }
 
     public double getSalary() {
@@ -95,7 +95,5 @@ public class Employee {
     public void setPosition(String position) {
         this.position = position;
     }
-
-
 
 }
