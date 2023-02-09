@@ -33,7 +33,7 @@ public class EmployeeStorage {
     public Employee search(String ID) {
         for (int i = 0; i < size; i++) {
             Employee employee = array[i];
-            if (employee.getEmplyeeID().toLowerCase().contains(ID.toLowerCase())) {
+            if (employee.getID().toLowerCase().contains(ID.toLowerCase())) {
                 return (employee);
             }
         }
@@ -44,7 +44,7 @@ public class EmployeeStorage {
         boolean check = true;
         for (int i = 0; i < size; i++) {
             Employee employee = array[i];
-            String tmp = employee.getEmplyeeID();
+            String tmp = employee.getID();
             if (id.equals(tmp)) {
                 check = false;
             }
