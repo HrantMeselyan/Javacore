@@ -30,18 +30,14 @@ public class EmployeeStorage {
     }
 
 
-    public void search(String ID) {
-        boolean found = false;
+    public Employee search(String ID) {
         for (int i = 0; i < size; i++) {
             Employee employee = array[i];
             if (employee.getEmplyeeID().toLowerCase().contains(ID.toLowerCase())) {
-                found = true;
-                System.out.println(employee);
+                return (employee);
             }
         }
-        if (!found) {
-            System.out.println("employee" + ID + "does not exits");
-        }
+        return null;
     }
 
     public boolean checkID(String id) {
