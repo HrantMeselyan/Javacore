@@ -45,14 +45,10 @@ public class EmployeeStorage {
             Employee employee = array[i];
             String tmp = employee.getID();
             if (id.equals(tmp)) {
-               return null;
+                return null;
             }
         }
         return id;
-    }
-
-    public void lastCheck() {
-
     }
 
     public void searchByCompanyName(String companyNameSearch) {
