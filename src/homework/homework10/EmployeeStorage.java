@@ -4,6 +4,7 @@ package homework.homework10;
 public class EmployeeStorage {
     private Employee[] array = new Employee[10];
     private int size;
+    private static Employee employee = new Employee();
 
 
     public void add(Employee item) {
@@ -63,6 +64,45 @@ public class EmployeeStorage {
         }
         if (!found) {
             System.out.println("company " + companyNameSearch + "does not exits");
+        }
+    }
+
+    public Employee searchByMaxAndMin(int min, int max) {
+        for (int i = 0; i < size; i++) {
+            Employee employee = array[i];
+            double salaryDouble = employee.getSalary();
+            int salaryInt = (int) salaryDouble;
+            if (min <= salaryInt && max >= salaryInt)
+                return (employee);
+        }
+        return null;
+    }
+
+    public void changeEmployeePositionById(String id, String position) {
+        for (int i = 0; i < size; i++) {
+            Employee employee = array[i];
+            String getId = employee.getID();
+            if (getId.equals(id)) {
+                employee.setPosition(position);
+            }
+        }
+    }
+
+    public void printActiveEmployees() {
+        for (int i = 0; i < size; i++) {
+            if (employee.isActive() == true) {
+                System.out.println(array[i] + " ");
+            }
+        }
+    }
+
+    public void inactiveEmployeeById(String id) {
+        for (int i = 0; i < size; i++) {
+            Employee employee = array[i];
+            String getId = employee.getID();
+            if (id.equals(getId)) {
+                employee.setActive(false);
+            }
         }
     }
 }
