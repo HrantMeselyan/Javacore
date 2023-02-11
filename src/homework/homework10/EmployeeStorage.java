@@ -40,15 +40,16 @@ public class EmployeeStorage {
         return null;
     }
 
-    public String checkID(String id) {
+    public boolean checkID(String id) {
+        boolean check = true;
         for (int i = 0; i < size; i++) {
             Employee employee = array[i];
             String tmp = employee.getID();
             if (id.equals(tmp)) {
-                return null;
+                check = false;
             }
         }
-        return id;
+        return check;
     }
 
     public void searchByCompanyName(String companyNameSearch) {
@@ -63,7 +64,5 @@ public class EmployeeStorage {
         if (!found) {
             System.out.println("company " + companyNameSearch + "does not exits");
         }
-
     }
-
 }

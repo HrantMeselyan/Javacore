@@ -3,9 +3,10 @@ package homework.homework10;
 import java.util.Scanner;
 
 public class EmployeeDemo {
+    private static Scanner scanner = new Scanner(System.in);
+    private static EmployeeStorage employeeStorage = new EmployeeStorage();
+
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        EmployeeStorage employeeStorage = new EmployeeStorage();
         boolean isRun = true;
         while (isRun) {
             System.out.println("Please input 0 for exit");
@@ -19,20 +20,7 @@ public class EmployeeDemo {
                     isRun = false;
                     break;
                 case "1":
-                    System.out.println("please input name");
-                    String name = scanner.nextLine();
-                    System.out.println("please input surname");
-                    String surname = scanner.nextLine();
-                    System.out.println("please input author id");
-                    String id = scanner.nextLine();
-                    System.out.println("please input salary");
-                    String salary = scanner.nextLine();
-                    System.out.println("Please input company name");
-                    String companyName = scanner.nextLine();
-                    System.out.println("Please input position");
-                    String position = scanner.nextLine();
-                    Employee employee = new Employee(name, surname, employeeStorage.checkID(id), Double.parseDouble(salary), companyName, position);
-                    employeeStorage.add(employee);
+                    employeeAdd();
                     break;
                 case "2":
                     employeeStorage.print();
@@ -52,5 +40,26 @@ public class EmployeeDemo {
 
             }
         }
+    }
+
+    private static void employeeAdd() {
+        System.out.println("please input name");
+        String name = scanner.nextLine();
+        System.out.println("please input surname");
+        String surname = scanner.nextLine();
+        System.out.println("please input author id");
+        String id = scanner.nextLine();
+        if (!employeeStorage.checkID(id)) {
+            System.out.println("Wrong index");
+            return;
+        }
+        System.out.println("please input salary");
+        String salary = scanner.nextLine();
+        System.out.println("Please input company name");
+        String companyName = scanner.nextLine();
+        System.out.println("Please input position");
+        String position = scanner.nextLine();
+        Employee employee = new Employee(name, surname, id, Double.parseDouble(salary), companyName, position);
+        employeeStorage.add(employee);
     }
 }
