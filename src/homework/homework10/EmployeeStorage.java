@@ -90,6 +90,7 @@ public class EmployeeStorage {
 
     public void printActiveEmployees() {
         for (int i = 0; i < size; i++) {
+            Employee employee = array[i];
             if (employee.isActive() == true) {
                 System.out.println(array[i] + " ");
             }

@@ -88,6 +88,7 @@ public class EmployeeDemo {
         employee = new Employee(name, surname, id, Double.parseDouble(salary), companyName, position);
         employeeStorage.add(employee);
     }
+
     private static void searchByRange() {
         System.out.println("Please input minimum");
         int min = Integer.parseInt(scanner.nextLine());
@@ -95,11 +96,12 @@ public class EmployeeDemo {
         int max = Integer.parseInt(scanner.nextLine());
         System.out.println(employeeStorage.searchByMaxAndMin(min, max));
     }
+
     private static void changeEmployeePosition() {
         System.out.println("Please input id for change position");
         String id = scanner.nextLine();
         System.out.println("Please input position");
         String position = scanner.nextLine();
-        employeeStorage.changeEmployeePositionById(id,position);
+        employeeStorage.changeEmployeePositionById(id, position);
     }
 }
