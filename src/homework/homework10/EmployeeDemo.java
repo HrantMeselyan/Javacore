@@ -94,7 +94,7 @@ public class EmployeeDemo {
         int min = Integer.parseInt(scanner.nextLine());
         System.out.println("Please input maximum");
         int max = Integer.parseInt(scanner.nextLine());
-        System.out.println(employeeStorage.searchByMaxAndMin(min, max));
+        employeeStorage.searchByMaxAndMin(min, max);
     }
 
     private static void changeEmployeePosition() {

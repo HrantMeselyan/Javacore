@@ -67,15 +67,14 @@ public class EmployeeStorage {
         }
     }
 
-    public Employee searchByMaxAndMin(int min, int max) {
+    public void searchByMaxAndMin(int min, int max) {
         for (int i = 0; i < size; i++) {
             Employee employee = array[i];
             double salaryDouble = employee.getSalary();
             int salaryInt = (int) salaryDouble;
             if (min <= salaryInt && max >= salaryInt)
-                return (employee);
+                System.out.println(array[i] + " ");
         }
-        return null;
     }
 
     public void changeEmployeePositionById(String id, String position) {
