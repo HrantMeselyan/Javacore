@@ -55,6 +55,10 @@ public class EmployeeDemo {
                     String id = scanner.nextLine();
                     employeeStorage.inactiveEmployeeById(id);
                     break;
+                case "9":
+                    System.out.println("Please input id for activate employee");
+                    String activateId = scanner.nextLine();
+                    employeeStorage.activateEmployeeById(activateId);
                 default:
                     System.out.println("Wrong command .Please try again");
 

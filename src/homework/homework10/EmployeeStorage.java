@@ -105,4 +105,14 @@ public class EmployeeStorage {
             }
         }
     }
+
+    public void activateEmployeeById(String activateId) {
+        for (int i = 0; i < size; i++) {
+            Employee employee = array[i];
+            String getId = employee.getID();
+            if (activateId.equals(getId)) {
+                employee.setActive(true);
+            }
+        }
+    }
 }
