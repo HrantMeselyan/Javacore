@@ -4,8 +4,6 @@ package homework.homework10;
 public class EmployeeStorage {
     private Employee[] array = new Employee[10];
     private int size;
-    private static Employee employee = new Employee();
-
 
     public void add(Employee item) {
         if (size == array.length) {
@@ -24,18 +22,15 @@ public class EmployeeStorage {
 
     public void extend() {
         Employee[] array2 = new Employee[array.length + 10];
-        for (int i = 0; i < array.length; i++) {
-            array2[i] = array[i];
-        }
+        System.arraycopy(array, 0, array2, 0, array.length);
         array = array2;
     }
 
 
-    public Employee search(String ID) {
+    public Employee search(String id) {
         for (int i = 0; i < size; i++) {
-            Employee employee = array[i];
-            if (employee.getID().toLowerCase().contains(ID.toLowerCase())) {
-                return (employee);
+            if (array[i].getID().toLowerCase().contains(id.toLowerCase())) {
+                return (array[i]);
             }
         }
         return null;
@@ -44,10 +39,9 @@ public class EmployeeStorage {
     public boolean checkID(String id) {
         boolean check = true;
         for (int i = 0; i < size; i++) {
-            Employee employee = array[i];
-            String tmp = employee.getID();
-            if (id.equals(tmp)) {
+            if (id.equals(array[i].getID())) {
                 check = false;
+                break;
             }
         }
         return check;
@@ -69,8 +63,7 @@ public class EmployeeStorage {
 
     public void searchByMaxAndMin(int min, int max) {
         for (int i = 0; i < size; i++) {
-            Employee employee = array[i];
-            double salaryDouble = employee.getSalary();
+            double salaryDouble = array[i].getSalary();
             int salaryInt = (int) salaryDouble;
             if (min <= salaryInt && max >= salaryInt)
                 System.out.println(array[i] + " ");
@@ -79,18 +72,16 @@ public class EmployeeStorage {
 
     public void changeEmployeePositionById(String id, String position) {
         for (int i = 0; i < size; i++) {
-            Employee employee = array[i];
-            String getId = employee.getID();
+            String getId = array[i].getID();
             if (getId.equals(id)) {
-                employee.setPosition(position);
+                array[i].setPosition(position);
             }
         }
     }
 
     public void printActiveEmployees() {
         for (int i = 0; i < size; i++) {
-            Employee employee = array[i];
-            if (employee.isActive() == true) {
+            if (array[i].isActive()) {
                 System.out.println(array[i] + " ");
             }
         }
@@ -98,20 +89,16 @@ public class EmployeeStorage {
 
     public void inactiveEmployeeById(String id) {
         for (int i = 0; i < size; i++) {
-            Employee employee = array[i];
-            String getId = employee.getID();
-            if (id.equals(getId)) {
-                employee.setActive(false);
+            if (id.equals(array[i].getID())) {
+                array[i].setActive(false);
             }
         }
     }
 
-    public void activateEmployeeById(String activateId) {
+    public void activateEmployeeById(String employeeId) {
         for (int i = 0; i < size; i++) {
-            Employee employee = array[i];
-            String getId = employee.getID();
-            if (activateId.equals(getId)) {
-                employee.setActive(true);
+            if (employeeId.equals(array[i].getID())) {
+                array[i].setActive(true);
             }
         }
     }

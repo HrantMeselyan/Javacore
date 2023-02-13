@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class EmployeeDemo {
     private static Scanner scanner = new Scanner(System.in);
     private static EmployeeStorage employeeStorage = new EmployeeStorage();
-    private static Employee employee;
 
     public static void main(String[] args) {
         boolean isRun = true;
@@ -13,8 +12,8 @@ public class EmployeeDemo {
             System.out.println("Please input 0 for exit");
             System.out.println("Please input 1 for add employee");
             System.out.println("Please input 2 for print all employee");
-            System.out.println("Please inout 3 for search employee by employee ID");
-            System.out.println("Please inout 4 for  search employee by company name");
+            System.out.println("Please inout 3 for search employee by employee id");
+            System.out.println("Please inout 4 for search employee by company name");
             System.out.println("Please input 5 for search employee by salary range");
             System.out.println("Please input 6 for change employee position by id");
             System.out.println("Please input 7 for print only active employees");
@@ -32,9 +31,9 @@ public class EmployeeDemo {
                     employeeStorage.print();
                     break;
                 case "3":
-                    System.out.println("Please input employee ID");
-                    String ID = scanner.nextLine();
-                    System.out.println(employeeStorage.search(ID));
+                    System.out.println("Please input employee id");
+                    String idForSearch = scanner.nextLine();
+                    System.out.println(employeeStorage.search(idForSearch));
                     break;
                 case "4":
                     System.out.println("Please input company name");
@@ -57,8 +56,8 @@ public class EmployeeDemo {
                     break;
                 case "9":
                     System.out.println("Please input id for activate employee");
-                    String activateId = scanner.nextLine();
-                    employeeStorage.activateEmployeeById(activateId);
+                    String employeeId = scanner.nextLine();
+                    employeeStorage.activateEmployeeById(employeeId);
                     break;
                 default:
                     System.out.println("Wrong command .Please try again");
@@ -85,7 +84,7 @@ public class EmployeeDemo {
         String companyName = scanner.nextLine();
         System.out.println("Please input position");
         String position = scanner.nextLine();
-        employee = new Employee(name, surname, id, Double.parseDouble(salary), companyName, position);
+        Employee employee = new Employee(name, surname, id, Double.parseDouble(salary), companyName, position);
         employeeStorage.add(employee);
     }
 
