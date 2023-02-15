@@ -1,24 +1,18 @@
 package homework.homework10;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
 
 public class EmployeeDemo {
     private static Scanner scanner = new Scanner(System.in);
     private static EmployeeStorage employeeStorage = new EmployeeStorage();
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ParseException {
         boolean isRun = true;
         while (isRun) {
-            System.out.println("Please input 0 for exit");
-            System.out.println("Please input 1 for add employee");
-            System.out.println("Please input 2 for print all employee");
-            System.out.println("Please inout 3 for search employee by employee id");
-            System.out.println("Please inout 4 for search employee by company name");
-            System.out.println("Please input 5 for search employee by salary range");
-            System.out.println("Please input 6 for change employee position by id");
-            System.out.println("Please input 7 for print only active employees");
-            System.out.println("Please input 8 for inactive employee by id");
-            System.out.println("Please input 9 for activate employee by id");
+            menu();
             String command = scanner.nextLine();
             switch (command) {
                 case "0":
@@ -66,6 +60,19 @@ public class EmployeeDemo {
         }
     }
 
+    private static void menu() {
+        System.out.println("Please input 0 for exit");
+        System.out.println("Please input 1 for add employee");
+        System.out.println("Please input 2 for print all employee");
+        System.out.println("Please inout 3 for search employee by employee id");
+        System.out.println("Please inout 4 for search employee by company name");
+        System.out.println("Please input 5 for search employee by salary range");
+        System.out.println("Please input 6 for change employee position by id");
+        System.out.println("Please input 7 for print only active employees");
+        System.out.println("Please input 8 for inactive employee by id");
+        System.out.println("Please input 9 for activate employee by id");
+    }
+
 
     private static void employeeAdd() {
         System.out.println("please input name");
@@ -80,11 +87,18 @@ public class EmployeeDemo {
         }
         System.out.println("please input salary");
         String salary = scanner.nextLine();
+
         System.out.println("Please input company name");
         String companyName = scanner.nextLine();
+
         System.out.println("Please input position");
         String position = scanner.nextLine();
-        Employee employee = new Employee(name, surname, id, Double.parseDouble(salary), companyName, position);
+
+        System.out.println("Please input employee birthday (12/02/2023)");
+        String dateOfBirthdayStr = scanner.nextLine();
+
+        String dateOfRegisterStr = dateOfRegister();
+        Employee employee = new Employee(name, surname, id, Double.parseDouble(salary), companyName, position, dateOfRegisterStr, dateOfBirthdayStr);
         employeeStorage.add(employee);
     }
 
@@ -102,5 +116,11 @@ public class EmployeeDemo {
         System.out.println("Please input position");
         String position = scanner.nextLine();
         employeeStorage.changeEmployeePositionById(id, position);
+    }
+
+    private static String dateOfRegister() {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        Date date = new Date();
+        return sdf.format(date);
     }
 }

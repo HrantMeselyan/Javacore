@@ -50,10 +50,9 @@ public class EmployeeStorage {
     public void searchByCompanyName(String companyNameSearch) {
         boolean found = false;
         for (int i = 0; i < size; i++) {
-            Employee employee = array[i];
-            if (employee.getCompany().toLowerCase().contains(companyNameSearch.toLowerCase())) {
+            if (array[i].getCompany().toLowerCase().contains(companyNameSearch.toLowerCase())) {
                 found = true;
-                System.out.println(employee.getName() + " " + employee.getSurname());
+                System.out.println(array[i].getName() + " " + array[i].getSurname());
             }
         }
         if (!found) {
@@ -91,6 +90,7 @@ public class EmployeeStorage {
         for (int i = 0; i < size; i++) {
             if (id.equals(array[i].getID())) {
                 array[i].setActive(false);
+                System.out.println("Status changed!");
             }
         }
     }

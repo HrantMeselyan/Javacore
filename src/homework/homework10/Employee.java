@@ -10,15 +10,19 @@ public class Employee {
     private String company;
     private String position;
     private boolean active = true;
+    private String registerDate;
+    private String dateOfBirthday;
 
 
-    public Employee(String name, String surname, String id, double salary, String company, String position) {
+    public Employee(String name, String surname, String id, double salary, String company, String position, String registerDate,String dateOfBirthday) {
         this.name = name;
         this.surname = surname;
         this.id = id;
         this.salary = salary;
         this.company = company;
         this.position = position;
+        this.registerDate = registerDate;
+        this.dateOfBirthday = dateOfBirthday;
     }
 
     public Employee() {
@@ -29,12 +33,12 @@ public class Employee {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Employee employee = (Employee) o;
-        return Double.compare(employee.salary, salary) == 0 && active == employee.active && Objects.equals(name, employee.name) && Objects.equals(surname, employee.surname) && Objects.equals(id, employee.id) && Objects.equals(company, employee.company) && Objects.equals(position, employee.position);
+        return Double.compare(employee.salary, salary) == 0 && active == employee.active && Objects.equals(name, employee.name) && Objects.equals(surname, employee.surname) && Objects.equals(id, employee.id) && Objects.equals(company, employee.company) && Objects.equals(position, employee.position) && Objects.equals(registerDate, employee.registerDate) && Objects.equals(dateOfBirthday, employee.dateOfBirthday);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, surname, id, salary, company, position, active);
+        return Objects.hash(name, surname, id, salary, company, position, active, registerDate, dateOfBirthday);
     }
 
     @Override
@@ -47,6 +51,8 @@ public class Employee {
                 ", company='" + company + '\'' +
                 ", position='" + position + '\'' +
                 ", active=" + active +
+                ", registerDate='" + registerDate + '\'' +
+                ", dateOfBirthday='" + dateOfBirthday + '\'' +
                 '}';
     }
 
@@ -100,6 +106,22 @@ public class Employee {
 
     public boolean isActive() {
         return active;
+    }
+
+    public String getRegisterDate() {
+        return registerDate;
+    }
+
+    public void setRegisterDate(String registerDate) {
+        this.registerDate = registerDate;
+    }
+
+    public String getDateOfBirthday() {
+        return dateOfBirthday;
+    }
+
+    public void setDateOfBirthday(String dateOfBirthday) {
+        this.dateOfBirthday = dateOfBirthday;
     }
 
     public void setActive(boolean active) {
