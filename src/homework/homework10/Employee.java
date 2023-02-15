@@ -1,5 +1,6 @@
 package homework.homework10;
 
+import java.util.Date;
 import java.util.Objects;
 
 public class Employee {
@@ -10,11 +11,11 @@ public class Employee {
     private String company;
     private String position;
     private boolean active = true;
-    private String registerDate;
-    private String dateOfBirthday;
+    private Date registerDate;
+    private Date dateOfBirthday;
 
 
-    public Employee(String name, String surname, String id, double salary, String company, String position, String registerDate,String dateOfBirthday) {
+    public Employee(String name, String surname, String id, double salary, String company, String position,  Date registerDate, Date dateOfBirthday) {
         this.name = name;
         this.surname = surname;
         this.id = id;
@@ -51,8 +52,8 @@ public class Employee {
                 ", company='" + company + '\'' +
                 ", position='" + position + '\'' +
                 ", active=" + active +
-                ", registerDate='" + registerDate + '\'' +
-                ", dateOfBirthday='" + dateOfBirthday + '\'' +
+                ", registerDate=" + registerDate +
+                ", dateOfBirthday=" + dateOfBirthday +
                 '}';
     }
 
@@ -108,19 +109,19 @@ public class Employee {
         return active;
     }
 
-    public String getRegisterDate() {
+    public Date getRegisterDate() {
         return registerDate;
     }
 
-    public void setRegisterDate(String registerDate) {
+    public void setRegisterDate(Date registerDate) {
         this.registerDate = registerDate;
     }
 
-    public String getDateOfBirthday() {
+    public Date getDateOfBirthday() {
         return dateOfBirthday;
     }
 
-    public void setDateOfBirthday(String dateOfBirthday) {
+    public void setDateOfBirthday(Date dateOfBirthday) {
         this.dateOfBirthday = dateOfBirthday;
     }
 
