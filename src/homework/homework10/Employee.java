@@ -46,9 +46,10 @@ public class Employee {
     @Override
     public String toString() {
 
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
-        String registerDateStr = sdf.format(registerDate);
-        String dateOfBirthdayStr = sdf.format(dateOfBirthday);
+        SimpleDateFormat sdfReg = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+        SimpleDateFormat sdfBirth = new SimpleDateFormat("dd/MM/yyyy");
+        String registerDateStr = sdfReg.format(registerDate);
+        String dateOfBirthdayStr = sdfBirth.format(dateOfBirthday);
 
         return "Employee{" +
                 "name='" + name + '\'' +
