@@ -1,5 +1,6 @@
 package homework.homework10;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Objects;
 
@@ -44,6 +45,11 @@ public class Employee {
 
     @Override
     public String toString() {
+
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+        String registerDateStr = sdf.format(registerDate);
+        String dateOfBirthdayStr = sdf.format(dateOfBirthday);
+
         return "Employee{" +
                 "name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
@@ -52,8 +58,8 @@ public class Employee {
                 ", company='" + company + '\'' +
                 ", position='" + position + '\'' +
                 ", active=" + active +
-                ", registerDate=" + registerDate +
-                ", dateOfBirthday=" + dateOfBirthday +
+                ", registerDate=" + registerDateStr +
+                ", dateOfBirthday=" + dateOfBirthdayStr +
                 '}';
     }
 
