@@ -77,8 +77,10 @@ public class EmployeeDemo {
     private static void employeeAdd() {
         System.out.println("please input name");
         String name = scanner.nextLine();
+
         System.out.println("please input surname");
         String surname = scanner.nextLine();
+
         System.out.println("please input author id");
         String id = scanner.nextLine();
         if (!employeeStorage.checkID(id)) {
@@ -100,6 +102,7 @@ public class EmployeeDemo {
         String dateOfRegisterStr = dateOfRegister();
         Employee employee = new Employee(name, surname, id, Double.parseDouble(salary), companyName, position, dateOfRegisterStr, dateOfBirthdayStr);
         employeeStorage.add(employee);
+        System.out.println("Employee is added!");
     }
 
     private static void searchByRange() {
@@ -116,6 +119,7 @@ public class EmployeeDemo {
         System.out.println("Please input position");
         String position = scanner.nextLine();
         employeeStorage.changeEmployeePositionById(id, position);
+        System.out.println("Position is changed");
     }
 
     private static String dateOfRegister() {

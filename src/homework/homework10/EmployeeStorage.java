@@ -91,7 +91,7 @@ public class EmployeeStorage {
             if (id.equals(array[i].getID()) && array[i].isActive()) {
                 array[i].setActive(false);
                 System.out.println("Status changed!");
-            }else {
+            } else {
                 System.out.println("Status is already false");
             }
         }
@@ -101,7 +101,7 @@ public class EmployeeStorage {
         for (int i = 0; i < size; i++) {
             if (employeeId.equals(array[i].getID()) && !array[i].isActive()) {
                 array[i].setActive(true);
-            }else {
+            } else {
                 System.out.println("Status is already true");
             }
         }
