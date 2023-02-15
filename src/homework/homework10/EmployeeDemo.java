@@ -119,7 +119,7 @@ public class EmployeeDemo {
     }
 
     private static String dateOfRegister() {
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy hh:mm");
         Date date = new Date();
         return sdf.format(date);
     }
