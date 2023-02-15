@@ -96,13 +96,8 @@ public class EmployeeDemo {
         System.out.println("Please input position");
         String position = scanner.nextLine();
 
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-        System.out.println("Please input employee birthday (12/02/2023)");
-        String dateOfBirthdayStr = scanner.nextLine();
-        Date parse = sdf.parse(dateOfBirthdayStr);
-
         Date date = new Date();
-        Employee employee = new Employee(name, surname, id, Double.parseDouble(salary), companyName, position, date, parse);
+        Employee employee = new Employee(name, surname, id, Double.parseDouble(salary), companyName, position, date, dateOfBirthday());
 
         employeeStorage.add(employee);
         System.out.println("Employee is added!");
@@ -125,9 +120,11 @@ public class EmployeeDemo {
         System.out.println("Position is changed");
     }
 
-//    private static Date dateOfRegister() {
-//        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy hh:mm");
-//        Date date = new Date();
-//        return date;
-//    }
+    private static Date dateOfBirthday() throws ParseException {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        System.out.println("Please input employee birthday (12/02/2023)");
+        String dateOfBirthdayStr = scanner.nextLine();
+        Date parse = sdf.parse(dateOfBirthdayStr);
+        return parse;
+    }
 }
