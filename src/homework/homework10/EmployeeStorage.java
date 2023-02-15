@@ -88,17 +88,21 @@ public class EmployeeStorage {
 
     public void inactiveEmployeeById(String id) {
         for (int i = 0; i < size; i++) {
-            if (id.equals(array[i].getID())) {
+            if (id.equals(array[i].getID()) && array[i].isActive()) {
                 array[i].setActive(false);
                 System.out.println("Status changed!");
+            }else {
+                System.out.println("Status is already false");
             }
         }
     }
 
     public void activateEmployeeById(String employeeId) {
         for (int i = 0; i < size; i++) {
-            if (employeeId.equals(array[i].getID())) {
+            if (employeeId.equals(array[i].getID()) && !array[i].isActive()) {
                 array[i].setActive(true);
+            }else {
+                System.out.println("Status is already true");
             }
         }
     }
