@@ -1,6 +1,7 @@
 package homework.employee.storage;
 
 
+import homework.employee.model.Company;
 import homework.employee.model.Employee;
 
 public class EmployeeStorage {
@@ -17,7 +18,7 @@ public class EmployeeStorage {
 
     public void print() {
         if (size == 0) {
-            System.out.println("NOT FOUND EMPLOYEES!");
+            System.out.println("Not found employees!");
         }
         for (int i = 0; i < size; i++) {
             System.out.println(array[i] + " ");
@@ -52,16 +53,16 @@ public class EmployeeStorage {
         return check;
     }
 
-    public void searchByCompanyName(String companyNameSearch) {
+    public void searchByCompany(Company company) {
         boolean found = false;
         for (int i = 0; i < size; i++) {
-            if (array[i].getCompany().toLowerCase().contains(companyNameSearch.toLowerCase())) {
+            if (array[i].getCompany().equals(company)) {
                 found = true;
                 System.out.println(array[i].getName() + " " + array[i].getSurname());
             }
         }
         if (!found) {
-            System.out.println("company " + companyNameSearch + "does not exits");
+            System.out.println("company " + company + "does not exits");
         }
     }
 
@@ -69,8 +70,11 @@ public class EmployeeStorage {
         for (int i = 0; i < size; i++) {
             double salaryDouble = array[i].getSalary();
             int salaryInt = (int) salaryDouble;
-            if (min <= salaryInt && max >= salaryInt)
+            if (min <= salaryInt && max >= salaryInt) {
                 System.out.println(array[i] + " ");
+            }else{
+                System.out.println("Employee by salary range at " + min  + " to " + max + " not found");
+            }
         }
     }
 

@@ -2,26 +2,31 @@ package homework.employee;
 
 public interface Commands {
     String EXIT = "0";
-    String ADD = "1";
-    String PRINT = "2";
-    String EMPLOYEE_BY_ID = "3";
-    String SEARCH_BY_COMPANY_NAME = "4";
-    String SEARCH_BY_SALARY_RANGE = "5";
-    String CHANGE_POSITION_BY_ID = "6";
-    String PRINT_ACTIVE_EMPLOYEES = "7";
-    String INACTIVE_BY_ID = "8";
-    String ACTIVATE_BY_ID = "9";
+    String ADD_EMPLOYEE = "1";
+    String ADD_COMPANY = "2";
+    String PRINT_EMPLOYEES = "3";
+    String SEARCH_EMPLOYEE_BY_ID = "4";
+    String SEARCH_EMPLOYEE_BY_COMPANY_ID = "5";
+    String SEARCH_EMPLOYEE_BY_SALARY_RANGE = "6";
+    String CHANGE_EMPLOYEE_POSITION_BY_ID = "7";
+    String PRINT_ONLY_ACTIVE_EMPLOYEES = "8";
+    String INACTIVE_EMPLOYEE_BY_ID = "9";
+    String ACTIVATE_EMPLOYEE_BY_ID = "10";
+    String PRINT_ALL_COMPANIES = "11";
 
-    static void menu() {
+    static void printCommands() {
         System.out.println("Please input " + EXIT + " for exit");
-        System.out.println("Please input " + ADD + " for add employee");
-        System.out.println("Please input " + PRINT + " for print all employee");
-        System.out.println("Please inout " + EMPLOYEE_BY_ID + " for search employee by employee id");
-        System.out.println("Please inout " + SEARCH_BY_COMPANY_NAME + " for search employee by company name");
-        System.out.println("Please input " + SEARCH_BY_SALARY_RANGE + " for search employee by salary range");
-        System.out.println("Please input " + CHANGE_POSITION_BY_ID + " for change employee position by id");
-        System.out.println("Please input " + PRINT_ACTIVE_EMPLOYEES + " for print only active employees");
-        System.out.println("Please input " + INACTIVE_BY_ID + " for inactive employee by id");
-        System.out.println("Please input " + ACTIVATE_BY_ID + " for activate employee by id");
+        System.out.println("Please input " + ADD_EMPLOYEE + " for add employee");
+        System.out.println("Please input " + ADD_COMPANY + " for add company");
+        System.out.println("Please input " + PRINT_EMPLOYEES + " for print all employee");
+        System.out.println("Please inout " + SEARCH_EMPLOYEE_BY_ID + " for search employee by employee id");
+        System.out.println("Please inout " + SEARCH_EMPLOYEE_BY_COMPANY_ID + " for search employee by company id");
+        System.out.println("Please input " + SEARCH_EMPLOYEE_BY_SALARY_RANGE + " for search employee by salary range");
+        System.out.println("Please input " + CHANGE_EMPLOYEE_POSITION_BY_ID + " for change employee position by id");
+        System.out.println("Please input " + PRINT_ONLY_ACTIVE_EMPLOYEES + " for print only active employees");
+        System.out.println("Please input " + INACTIVE_EMPLOYEE_BY_ID + " for inactive employee by id");
+        System.out.println("Please input " + ACTIVATE_EMPLOYEE_BY_ID + " for activate employee by id");
+        System.out.println("Please input " + PRINT_ALL_COMPANIES + " for print all companies");
+
     }
 }
