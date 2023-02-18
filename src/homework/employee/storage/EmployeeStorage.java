@@ -1,5 +1,7 @@
-package homework.homework10;
+package homework.employee.storage;
 
+
+import homework.employee.model.Employee;
 
 public class EmployeeStorage {
     private Employee[] array = new Employee[10];
@@ -14,6 +16,9 @@ public class EmployeeStorage {
 
 
     public void print() {
+        if (size == 0) {
+            System.out.println("NOT FOUND EMPLOYEES!");
+        }
         for (int i = 0; i < size; i++) {
             System.out.println(array[i] + " ");
         }

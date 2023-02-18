@@ -1,8 +1,11 @@
-package homework.homework10;
+package homework.employee.model;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Objects;
+
+import homework.employee.util.DataUtil;
+
 
 public class Employee {
     private String name;
@@ -16,7 +19,7 @@ public class Employee {
     private Date dateOfBirthday;
 
 
-    public Employee(String name, String surname, String id, double salary, String company, String position,  Date registerDate, Date dateOfBirthday) {
+    public Employee(String name, String surname, String id, double salary, String company, String position, Date registerDate, Date dateOfBirthday) {
         this.name = name;
         this.surname = surname;
         this.id = id;
@@ -45,12 +48,6 @@ public class Employee {
 
     @Override
     public String toString() {
-
-        SimpleDateFormat sdfReg = new SimpleDateFormat("dd/MM/yyyy HH:mm");
-        SimpleDateFormat sdfBirth = new SimpleDateFormat("dd/MM/yyyy");
-        String registerDateStr = sdfReg.format(registerDate);
-        String dateOfBirthdayStr = sdfBirth.format(dateOfBirthday);
-
         return "Employee{" +
                 "name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
@@ -59,8 +56,8 @@ public class Employee {
                 ", company='" + company + '\'' +
                 ", position='" + position + '\'' +
                 ", active=" + active +
-                ", registerDate=" + registerDateStr +
-                ", dateOfBirthday=" + dateOfBirthdayStr +
+                ", registerDate=" +  DataUtil.registerDate(registerDate) +
+                ", dateOfBirthday=" +  DataUtil.dateOfBirthday(dateOfBirthday) +
                 '}';
     }
 
