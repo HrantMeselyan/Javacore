@@ -9,7 +9,6 @@ import homework.employee.util.DataUtil;
 import java.text.ParseException;
 import java.util.Date;
 import java.util.Scanner;
-
 public class EmployeeDemo implements Commands {
     private static final Scanner scanner = new Scanner(System.in);
     private static final EmployeeStorage employeeStorage = new EmployeeStorage();
@@ -82,7 +81,7 @@ public class EmployeeDemo implements Commands {
                 companyStorage.add(company);
                 System.out.println("Company was added!");
             } else {
-                System.out.println("Company with " + companyId + " already exists");
+                System.out.println("Company with id" + companyId + " already exists");
             }
         } catch (ArrayIndexOutOfBoundsException e) {
             System.out.println("please fill to the end");
@@ -152,7 +151,6 @@ public class EmployeeDemo implements Commands {
         System.out.println("Please input position");
         String position = scanner.nextLine();
         employeeStorage.changeEmployeePositionById(id, position);
-        System.out.println("Position is changed");
     }
 
     private static void searchEmployeeByCompanyId() {

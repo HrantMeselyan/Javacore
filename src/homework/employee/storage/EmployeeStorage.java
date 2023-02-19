@@ -59,6 +59,7 @@ public class EmployeeStorage {
             if (array[i].getCompany().equals(company)) {
                 found = true;
                 System.out.println(array[i].getName() + " " + array[i].getSurname());
+                break;
             }
         }
         if (!found) {
@@ -67,23 +68,34 @@ public class EmployeeStorage {
     }
 
     public void searchByMaxAndMin(int min, int max) {
+        boolean foundByRange = false;
         for (int i = 0; i < size; i++) {
             double salaryDouble = array[i].getSalary();
             int salaryInt = (int) salaryDouble;
             if (min <= salaryInt && max >= salaryInt) {
                 System.out.println(array[i] + " ");
-            }else{
-                System.out.println("Employee by salary range at " + min  + " to " + max + " not found");
+                foundByRange = true;
+                break;
             }
+        }
+        if (!foundByRange) {
+            System.out.println("Employee by salary range at " + min + " to " + max + " not found");
         }
     }
 
     public void changeEmployeePositionById(String id, String position) {
+        boolean isChanged = false;
         for (int i = 0; i < size; i++) {
             String getId = array[i].getID();
             if (getId.equals(id)) {
                 array[i].setPosition(position);
+                System.out.println("Position is changed");
+                isChanged = true;
+                break;
             }
+        }
+        if (!isChanged) {
+            System.out.println("Wrong id!");
         }
     }
 
@@ -96,32 +108,44 @@ public class EmployeeStorage {
     }
 
     public void inactiveEmployeeById(String id) {
+        boolean inactivate = false;
         for (int i = 0; i < size; i++) {
             if (id.equals(array[i].getID()) && array[i].isActive()) {
                 array[i].setActive(false);
+                Company company = array[i].getCompany();
+                company.setEmployeeCount(company.getEmployeeCount() - 1);
                 System.out.println("Status changed!");
+                inactivate = true;
+                break;
             } else if (id.equals(array[i].getID()) && !array[i].isActive()) {
                 System.out.println("Status is already false");
+                inactivate = true;
                 break;
-            } else {
-                System.out.println("Wrong id please try again");
-                return;
             }
+        }
+        if (!inactivate){
+            System.out.println("Wrong id!");
         }
     }
 
     public void activateEmployeeById(String employeeId) {
+        boolean activate = false;
         for (int i = 0; i < size; i++) {
             if (employeeId.equals(array[i].getID()) && !array[i].isActive()) {
                 array[i].setActive(true);
+                Company company = array[i].getCompany();
+                company.setEmployeeCount(company.getEmployeeCount() + 1);
                 System.out.println("Status changed!");
+                activate = true;
+                break;
             } else if (employeeId.equals(array[i].getID()) && array[i].isActive()) {
                 System.out.println("Status is already true");
+                activate = true;
                 break;
-            } else {
-                System.out.println("Wrong id please try again");
-                return;
             }
+        }
+        if (!activate) {
+            System.out.println("Wrong id!");
         }
     }
 }
