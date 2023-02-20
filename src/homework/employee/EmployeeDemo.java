@@ -16,6 +16,18 @@ public class EmployeeDemo implements Commands {
 
     public static void main(String[] args) throws ParseException {
         boolean isRun = true;
+        Company companyTest = new Company("a1","Dog","gyumri","374771515");
+        companyStorage.add(companyTest);
+        Company companyTest2 = new Company("b1","Shun","erevan","374771515");
+        companyStorage.add(companyTest2);
+        Date test = new Date();
+        employeeStorage.add(new Employee("hrant","meselyan","a001",400,companyTest,"manager",test,test));
+        employeeStorage.add(new Employee("vanik","meselyan","a002",600,companyTest,"manager",test,test));
+
+        employeeStorage.add(new Employee("shusho","meselyan","b001",40,companyTest2,"manager",test,test));
+        employeeStorage.add(new Employee("luso","meselyan","b002",190,companyTest2,"manager",test,test));
+        companyTest.setEmployeeCount(2);
+        companyTest2.setEmployeeCount(2);
         while (isRun) {
             Commands.printCommands();
             String command = scanner.nextLine();
