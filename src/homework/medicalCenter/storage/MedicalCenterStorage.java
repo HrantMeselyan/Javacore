@@ -3,6 +3,8 @@ package homework.medicalCenter.storage;
 import homework.medicalCenter.model.Patient;
 import homework.medicalCenter.model.Doctor;
 
+import java.util.Date;
+
 public class MedicalCenterStorage {
 
     private Doctor[] doctors = new Doctor[10];
@@ -47,12 +49,12 @@ public class MedicalCenterStorage {
             if (doctors[i].getId().equals(id)) {
                 doctors[i] = doctors[i + 1];
                 System.out.println("Doctor by " + id + " deleted!");
-                break;
+                doctorsCount--;
+                return;
             } else {
                 System.out.println("please try again!");
             }
         }
-        doctorsCount--;
     }
 
 
@@ -87,9 +89,52 @@ public class MedicalCenterStorage {
         return patientsCount;
     }
 
-    public void changeDoctorDates(String id, String s, String s1, String s2, String s3, String s4) {
+    public void changeDoctorDates(String id, String name, String surname, String mail, String phoneNumber, String profession) {
+        boolean found = false;
         for (int i = 0; i < doctorsCount; i++) {
+            if (doctors[i].getId().equals(id)) {
+                doctors[i].setName(name);
+                doctors[i].setSurname(surname);
+                doctors[i].setEmail(mail);
+                doctors[i].setPhoneNumber(phoneNumber);
+                doctors[i].setProfession(profession);
+                found = true;
+                System.out.println("Dates changed!");
+                break;
+            }
+        }
+        if (!found) {
+            System.out.println("Wrong id please try again!");
+        }
+    }
 
+    public void printAllPatientsByDoctorId(Doctor doctor) {
+        boolean found = false;
+        for (int i = 0; i < patientsCount; i++) {
+            if (patients[i].getDoctor().equals(doctor)) {
+                found = true;
+                System.out.println(patients[i]);
+            }
+        }
+        if (!found) {
+            String id = doctor.getId();
+            System.out.println("doctor by id " + id + " does not exits");
+        }
+    }
+
+    public void printTodayPatients() {
+        boolean found = false;
+        Date date = new Date();
+        int today = date.getDay();
+        for (int i = 0; i < patientsCount; i++) {
+            int day = patients[i].getRegisterDate().getDay();
+            if (today == day) {
+                System.out.println(patients[i]);
+                found = true;
+            }
+        }
+        if (!found) {
+            System.out.println("Today patients not found!");
         }
     }
 }

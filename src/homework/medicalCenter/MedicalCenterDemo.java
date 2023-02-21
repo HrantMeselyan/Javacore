@@ -13,10 +13,6 @@ public class MedicalCenterDemo implements homework.medicalCenter.Commands {
     private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        Doctor doctorTest = new Doctor("A001", "hrant", "zavenich", "hrant.meselyan", "374881512", "nyardaban");
-        medicalCenterStorage.add(doctorTest);
-        Date test = new Date();
-        medicalCenterStorage.add(new Patient("a1", "manik", "grigoryan", "3745511230", doctorTest, test));
 
         boolean isRun = true;
         while (isRun) {
@@ -54,11 +50,24 @@ public class MedicalCenterDemo implements homework.medicalCenter.Commands {
     }
 
     private static void printTodayPatients() {
-        System.out.println("todo");
+        int patientsCount = medicalCenterStorage.getPatientsCount();
+        if (patientsCount != 0) {
+            medicalCenterStorage.printTodayPatients();
+        } else {
+            System.out.println("Patients not exists");
+        }
     }
 
     private static void printAllPatientsByDoctor() {
-        System.out.println("todo");
+        System.out.println("Please choose doctor by id");
+        medicalCenterStorage.printDoctors();
+        String doctorId = scanner.nextLine();
+        Doctor doctorById = medicalCenterStorage.getDoctorById(doctorId);
+        if (doctorById != null) {
+            medicalCenterStorage.printAllPatientsByDoctorId(doctorById);
+        } else {
+            System.out.println("Doctors does not exists");
+        }
     }
 
     private static void addPatient() {
@@ -74,7 +83,6 @@ public class MedicalCenterDemo implements homework.medicalCenter.Commands {
             System.out.println("Please input id,name,surname,phone");
             String patientDataStr = scanner.nextLine();
             String[] patientData = patientDataStr.split(",");
-
             Date date = new Date();
             try {
                 Patient patient = new Patient(patientData[0], patientData[1], patientData[2], patientData[3], doctorById, date);
@@ -92,11 +100,14 @@ public class MedicalCenterDemo implements homework.medicalCenter.Commands {
         System.out.println("please input doctor id");
         medicalCenterStorage.printDoctors();
         String idForChangeDoctorDate = scanner.nextLine();
-        System.out.println("Please input new name,surname,mail,phoneNumber,profession for change doctor dates by id" + idForChangeDoctorDate);
+        System.out.println("Please input new name,surname,mail,phoneNumber,profession for change doctor dates");
         String changeDoctorDataById = scanner.nextLine();
         String changeDoctorDate[] = changeDoctorDataById.split(",");
-        medicalCenterStorage.changeDoctorDates(idForChangeDoctorDate,changeDoctorDate[0],changeDoctorDate[1],changeDoctorDate[2],changeDoctorDate[3],changeDoctorDate[4]);
-
+        try {
+            medicalCenterStorage.changeDoctorDates(idForChangeDoctorDate, changeDoctorDate[0], changeDoctorDate[1], changeDoctorDate[2], changeDoctorDate[3], changeDoctorDate[4]);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Please input correct dates!");
+        }
     }
 
     private static void deleteDoctorById() {
