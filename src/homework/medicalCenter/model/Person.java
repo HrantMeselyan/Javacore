@@ -17,11 +17,11 @@ public class Person {
 
     @Override
     public String toString() {
-        return "Person{" +
+        return
                 "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                '}';
+                        ", name='" + name + '\'' +
+                        ", surname='" + surname + '\''
+                ;
     }
 
     @Override

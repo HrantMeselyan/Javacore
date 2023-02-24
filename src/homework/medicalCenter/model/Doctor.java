@@ -22,7 +22,7 @@ public class Doctor extends Person {
 
     @Override
     public String toString() {
-        return super.toString() + "Doctor{" +
+        return super.toString() +
                 "email='" + email + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", profession='" + profession + '\'' +

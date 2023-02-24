@@ -3,14 +3,16 @@ package homework.medicalCenter.storage;
 import homework.medicalCenter.model.Patient;
 import homework.medicalCenter.model.Doctor;
 
+
 import java.util.Date;
 
 public class MedicalCenterStorage {
 
     private Doctor[] doctors = new Doctor[10];
-    private Patient[] patients = new Patient[10];
+    private final Patient[] patients = new Patient[10];
     private int patientsCount;
     private int doctorsCount;
+
 
     public void add(Doctor item) {
         if (doctorsCount == doctors.length) {
@@ -51,10 +53,9 @@ public class MedicalCenterStorage {
                 System.out.println("Doctor by " + id + " deleted!");
                 doctorsCount--;
                 return;
-            } else {
-                System.out.println("please try again!");
             }
         }
+        System.out.println("please try again!");
     }
 
 
