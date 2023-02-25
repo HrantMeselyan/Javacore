@@ -87,7 +87,6 @@ public class MedicalCenterStorage {
     }
 
     public void changeDoctorDates(String id, String name, String surname, String mail, String phoneNumber, String profession) {
-        boolean found = false;
         for (int i = 0; i < size; i++) {
             Person person = persons[i];
             if (person instanceof Doctor) {
@@ -98,14 +97,10 @@ public class MedicalCenterStorage {
                     doctor.setEmail(mail);
                     doctor.setPhoneNumber(phoneNumber);
                     doctor.setProfession(profession);
-                    found = true;
                     System.out.println("Dates changed!");
                     break;
                 }
             }
-        }
-        if (!found) {
-            System.out.println("Wrong id please try again!");
         }
     }
 
