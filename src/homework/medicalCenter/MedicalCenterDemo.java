@@ -64,7 +64,7 @@ public class MedicalCenterDemo implements homework.medicalCenter.Commands {
         String doctorId = scanner.nextLine();
         Doctor doctorById = medicalCenterStorage.getDoctorById(doctorId);
         if (doctorById != null) {
-            medicalCenterStorage.printAllPatientsByDoctorId(doctorById);
+            medicalCenterStorage.printAllPatientsByDoctor(doctorById);
         } else {
             System.out.println("Doctors does not exists");
         }
