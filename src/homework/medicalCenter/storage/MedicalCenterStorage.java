@@ -1,5 +1,6 @@
 package homework.medicalCenter.storage;
 
+import homework.medicalCenter.Profession;
 import homework.medicalCenter.model.Patient;
 import homework.medicalCenter.model.Doctor;
 import homework.medicalCenter.model.Person;
@@ -86,7 +87,7 @@ public class MedicalCenterStorage {
         return null;
     }
 
-    public void changeDoctorDates(String id, String name, String surname, String mail, String phoneNumber) {
+    public void changeDoctorDates(String id, String name, String surname, String mail, String phoneNumber, Profession profession) {
         for (int i = 0; i < size; i++) {
             Person person = persons[i];
             if (person instanceof Doctor) {
@@ -96,6 +97,7 @@ public class MedicalCenterStorage {
                     doctor.setSurname(surname);
                     doctor.setEmail(mail);
                     doctor.setPhoneNumber(phoneNumber);
+                    doctor.setProfession(profession);
                     System.out.println("Dates changed!");
                     break;
                 }
