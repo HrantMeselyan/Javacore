@@ -24,10 +24,10 @@ public class Doctor extends Person {
 
     @Override
     public String toString() {
-        return "Doctor{" +
+        return "Doctor{" + super.toString() + ", " +
                 "email='" + email + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
-                ", profession=" + profession +
+                ", profession=" + profession.getProfession() +
                 '}';
     }
 

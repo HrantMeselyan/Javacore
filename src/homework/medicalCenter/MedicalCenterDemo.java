@@ -154,8 +154,4 @@ public class MedicalCenterDemo implements homework.medicalCenter.Commands {
         }
 
     }
-
-    private static void addDoctorProfession() {
-
-    }
 }
