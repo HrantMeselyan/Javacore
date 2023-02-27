@@ -86,7 +86,7 @@ public class MedicalCenterStorage {
         return null;
     }
 
-    public void changeDoctorDates(String id, String name, String surname, String mail, String phoneNumber, String profession) {
+    public void changeDoctorDates(String id, String name, String surname, String mail, String phoneNumber) {
         for (int i = 0; i < size; i++) {
             Person person = persons[i];
             if (person instanceof Doctor) {
@@ -96,7 +96,6 @@ public class MedicalCenterStorage {
                     doctor.setSurname(surname);
                     doctor.setEmail(mail);
                     doctor.setPhoneNumber(phoneNumber);
-                    doctor.setProfession(profession);
                     System.out.println("Dates changed!");
                     break;
                 }

@@ -1,15 +1,17 @@
 package homework.medicalCenter.model;
 
+import homework.medicalCenter.Profession;
+
 import java.util.Objects;
 
 public class Doctor extends Person {
 
     private String email;
     private String phoneNumber;
-    private String profession;
+    private Profession profession;
 
 
-    public Doctor(String id, String name, String surname, String email, String phoneNumber, String profession) {
+    public Doctor(String id, String name, String surname, String email, String phoneNumber, Profession profession) {
         super(id, name, surname);
         this.email = email;
         this.phoneNumber = phoneNumber;
@@ -22,10 +24,10 @@ public class Doctor extends Person {
 
     @Override
     public String toString() {
-        return super.toString() +
+        return "Doctor{" +
                 "email='" + email + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
-                ", profession='" + profession + '\'' +
+                ", profession=" + profession +
                 '}';
     }
 
@@ -59,11 +61,11 @@ public class Doctor extends Person {
         this.phoneNumber = phoneNumber;
     }
 
-    public String getProfession() {
+    public Profession getProfession() {
         return profession;
     }
 
-    public void setProfession(String profession) {
+    public void setProfession(Profession profession) {
         this.profession = profession;
     }
 }
