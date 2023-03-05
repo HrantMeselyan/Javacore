@@ -48,6 +48,7 @@ public class MedicalCenterDemo implements homework.medicalCenter.Commands {
         }
     }
 
+
     private static void printTodayPatients() {
         int patientsCount = medicalCenterStorage.getPatientsCount();
         if (patientsCount != 0) {
