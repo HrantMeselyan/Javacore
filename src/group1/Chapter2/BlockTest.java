@@ -1,6 +1,8 @@
 package group1.Chapter2;
 
 
+import java.util.HashSet;
+
 public class BlockTest {
     public static void main(String[] args) {
         int x;
@@ -8,10 +10,11 @@ public class BlockTest {
 
         y = 20;
 
-        for ( x = 0; x < 10; x++) {
+        for (x = 0; x < 10; x++) {
             System.out.println(" x = " + x);
             System.out.println(" y = " + y);
             y = y - 2;
         }
+
     }
 }

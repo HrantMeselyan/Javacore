@@ -27,7 +27,7 @@ public class Patient extends Person {
         return "Patient{" + super.toString() + ", " +
                 "phone='" + phone + '\'' +
                 ", doctor=" + doctor.getName() +
-                ", registerDate=" + registerDate +
+                ", registerDate=" + DataUtil.registerDate(registerDate) +
                 '}';
     }
 

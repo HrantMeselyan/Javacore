@@ -10,28 +10,30 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class MedicalCenterStorage {
-    private List<Person> persons = new ArrayList<>();
+public class MedicalCenterStorage<T extends Person> {
+    private final List<T> array = new ArrayList<>();
     private int size;
 
-    public void add(Person person) {
-        persons.add(person);
+    public void add(T t) {
+        array.add(t);
         size++;
     }
 
     public void printDoctors() {
         for (int i = 0; i < size; i++) {
-            if (persons.get(i) instanceof Doctor) {
-                System.out.println(persons.get(i));
+            if (array.get(i) instanceof Doctor) {
+                System.out.println(array.get(i));
             }
         }
     }
 
     public void deleteDoctorById(String id) {
         for (int i = 0; i < size; i++) {
-            Person person = persons.get(i);
+            Person person = array.get(i);
             if (person instanceof Doctor && person.getId().equals(id)) {
-                persons.remove(i);
+                array.remove(i);
+                size--;
+                System.out.println("Doctor was deleted!");
                 return;
             }
         }
@@ -42,8 +44,8 @@ public class MedicalCenterStorage {
     public void searchByProfession(String profession) {
         boolean found = false;
         for (int i = 0; i < size; i++) {
-            Person person =persons.get(i);
-            if (persons.get(i) instanceof Doctor) {
+            Person person =  array.get(i);
+            if (array.get(i) instanceof Doctor) {
                 Doctor doctor = (Doctor) person;
                 if (doctor.getProfession().name().equals(profession)) {
                     found = true;
@@ -59,7 +61,7 @@ public class MedicalCenterStorage {
 
     public Doctor getDoctorById(String id) {
         for (int i = 0; i < size; i++) {
-            Person person = persons.get(i);
+            Person person =  array.get(i);
             if (person instanceof Doctor) {
                 Doctor doctor = (Doctor) person;
                 if (doctor.getId().equals(id)) {
@@ -72,7 +74,7 @@ public class MedicalCenterStorage {
 
     public void changeDoctorDates(String id, String name, String surname, String mail, String phoneNumber, Profession profession) {
         for (int i = 0; i < size; i++) {
-            Person person = persons.get(i);
+            Person person =  array.get(i);
             if (person instanceof Doctor) {
                 Doctor doctor = (Doctor) person;
                 if (doctor.getId().equals(id)) {
@@ -90,7 +92,7 @@ public class MedicalCenterStorage {
 
     public void printAllPatientsByDoctor(Doctor doctor) {
         for (int i = 0; i < size; i++) {
-            Person person = persons.get(i);
+            Person person =  array.get(i);
             if (person instanceof Patient) {
                 Patient patient = (Patient) person;
                 if (patient.getDoctor().equals(doctor)) {
@@ -103,7 +105,7 @@ public class MedicalCenterStorage {
     public void printTodayPatients() {
         boolean found = false;
         for (int i = 0; i < size; i++) {
-            Person person = persons.get(i);
+            Person person =  array.get(i);
             if (person instanceof Patient) {
                 Patient patient = (Patient) person;
                 Date date = new Date();
@@ -121,7 +123,7 @@ public class MedicalCenterStorage {
     public int getDoctorsCount() {
         int count = 0;
         for (int i = 0; i < size; i++) {
-            if (persons.get(i) instanceof Doctor) {
+            if (array.get(i) instanceof Doctor) {
                 count++;
             }
         }
@@ -131,7 +133,7 @@ public class MedicalCenterStorage {
     public int getPatientsCount() {
         int count = 0;
         for (int i = 0; i < size; i++) {
-            if (persons.get(i) instanceof Patient) {
+            if (array.get(i) instanceof Patient) {
                 count++;
             }
         }
