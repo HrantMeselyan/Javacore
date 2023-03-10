@@ -44,7 +44,7 @@ public class CollectionExample1 {
         int num = Integer.parseInt(index);
         try {
             names.add(num, name);
-        } catch (ArrayIndexOutOfBoundsException e) {
+        } catch (IndexOutOfBoundsException e) {
             System.out.println("Please input small index than " + names.size());
         }
     }
