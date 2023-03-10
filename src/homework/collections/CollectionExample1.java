@@ -43,8 +43,8 @@ public class CollectionExample1 {
         String index = scanner.nextLine();
         int num = Integer.parseInt(index);
         try {
-            names.add(num,name);
-        }catch (ArrayIndexOutOfBoundsException e){
+            names.add(num, name);
+        } catch (ArrayIndexOutOfBoundsException e) {
             System.out.println("Please input small index than " + names.size());
         }
     }
@@ -55,12 +55,12 @@ public class CollectionExample1 {
         for (String name : names) {
             if (name.equals(remove)) {
                 names.remove(remove);
-                System.out.println( remove + " was deleted");
+                System.out.println(remove + " was deleted");
                 print();
                 return;
             }
         }
-        System.out.println(remove  + " not found");
+        System.out.println(remove + " not found");
     }
 
     private static void searchName() {
