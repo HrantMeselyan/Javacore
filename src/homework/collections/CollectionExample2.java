@@ -1,11 +1,12 @@
 package homework.collections;
 
-import java.util.HashSet;
+
 import java.util.Scanner;
+import java.util.TreeSet;
 
 public class CollectionExample2 {
     static Scanner scanner = new Scanner(System.in);
-    static HashSet<String> names = new HashSet<>();
+    static TreeSet<String> names = new TreeSet<>();
 
     public static void main(String[] args) {
         boolean isRun = true;
@@ -31,7 +32,8 @@ public class CollectionExample2 {
         }
         print();
     }
-    private static void print(){
+
+    private static void print() {
         for (String name : names) {
             System.out.print(name + " ");
         }
