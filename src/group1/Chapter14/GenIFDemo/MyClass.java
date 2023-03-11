@@ -9,7 +9,6 @@ public class MyClass<T extends Comparable<T>> implements MinMax<T> {
 
     public T min() {
         T v = val[0];
-
         for (int i = 1; i < val.length; i++) {
             if (val[i].compareTo(v) < 0) {
                 v = val[i];
