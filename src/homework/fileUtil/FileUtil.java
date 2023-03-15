@@ -75,19 +75,23 @@ public class FileUtil {
         directory = new File(directoryPath);
         if (directory.exists()) {
             searchByKeyword();
+            return;
         }
+        System.out.println("Please input correct directory!");
     }
 
     private static void searchByKeyword() {
         File[] list = directory.listFiles();
         System.out.println("Please input keyword");
         String keyword = scanner.nextLine();
+        boolean found = false;
         for (File file : list) {
             if (file.isFile() && file.getName().endsWith(".txt")) {
                 try (BufferedReader inputStream = new BufferedReader(new FileReader(file))) {
                     String line = "";
                     while ((line = inputStream.readLine()) != null) {
                         if (line.contains(keyword)) {
+                            found = true;
                             System.out.println(file.getName());
                         }
                     }
@@ -95,6 +99,9 @@ public class FileUtil {
                     e.printStackTrace();
                 }
             }
+        }
+        if (!found) {
+            System.out.println("Not found file by keyword " + keyword);
         }
     }
 
@@ -114,6 +121,9 @@ public class FileUtil {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+        }
+        else {
+            System.out.println("Please input correct directory!");
         }
     }
 
@@ -138,11 +148,6 @@ public class FileUtil {
         return length;
     }
 
-    //այս մեթոդը պետք է սքաններով վերցնի երեք string.
-    // 1 - path պապկի տեղը, թե որտեղ է սարքելու նոր ֆայլը
-    // 2 - fileName ֆայլի անունը, թե ինչ անունով ֆայլ է սարքելու
-    // 3 - content ֆայլի պարունակությունը։ Այսինքն ստեղծված ֆայլի մեջ ինչ է գրելու
-    // որպես արդյունք պապկի մեջ սարքելու է նոր ֆայլ, իրա մեջ էլ լինելու է content-ով տվածը
     static void createFileWithContent() {
         System.out.println("Please input path");
         String path = scanner.nextLine();
