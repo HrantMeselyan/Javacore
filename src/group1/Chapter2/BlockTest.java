@@ -1,7 +1,6 @@
 package group1.Chapter2;
+import java.util.Stack;
 
-
-import java.util.HashSet;
 
 public class BlockTest {
     public static void main(String[] args) {
@@ -15,6 +14,6 @@ public class BlockTest {
             System.out.println(" y = " + y);
             y = y - 2;
         }
-
+        Stack<Integer> stack = new Stack<>();
     }
 }

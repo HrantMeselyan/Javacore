@@ -52,13 +52,10 @@ public class CollectionExample1 {
     private static void removeName() {
         System.out.println("Please input name");
         String remove = scanner.nextLine();
-        for (String name : names) {
-            if (name.equals(remove)) {
-                names.remove(remove);
+            if (names.remove(remove)) {
                 System.out.println(remove + " was deleted");
                 print();
                 return;
-            }
         }
         System.out.println(remove + " not found");
     }

@@ -2,11 +2,12 @@ package homework.collections;
 
 
 import java.util.Scanner;
+import java.util.Set;
 import java.util.TreeSet;
 
 public class CollectionExample2 {
     static Scanner scanner = new Scanner(System.in);
-    static TreeSet<String> names = new TreeSet<>();
+    static Set<String> names = new TreeSet<>();
 
     public static void main(String[] args) {
         boolean isRun = true;
