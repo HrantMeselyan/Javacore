@@ -112,17 +112,21 @@ public class FileUtil {
         System.out.println("Please input keyword");
         String keyword = scanner.nextLine();
         directory = new File(path);
+        boolean found = false;
         if (directory.isFile()) {
             try (BufferedReader inputStream = new BufferedReader(new FileReader(path))) {
                 String line = "";
                 while ((line = inputStream.readLine()) != null && line.contains(keyword)) {
+                    found = true;
                     System.out.println(line);
+                }
+                if (!found) {
+                    System.out.println("Keyword is not found!");
                 }
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        }
-        else {
+        } else {
             System.out.println("Please input correct directory!");
         }
     }
