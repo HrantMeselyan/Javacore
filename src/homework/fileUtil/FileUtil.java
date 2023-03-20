@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.Scanner;
 
 public class FileUtil {
-    private static Scanner scanner = new Scanner(System.in);
+    private static final Scanner scanner = new Scanner(System.in);
     private static String directoryPath;
     private static File directory;
 
@@ -23,7 +23,7 @@ public class FileUtil {
                     isRun = false;
                     break;
                 case "2":
-                    System.out.println(searchFileInFolder());
+                    System.out.println(searchFile());
                     break;
                 case "3":
                     contentSearch();
@@ -36,13 +36,14 @@ public class FileUtil {
                     break;
                 case "6":
                     createFileWithContent();
+                    break;
                 default:
                     System.out.println("Please try again!");
             }
         }
     }
 
-    static boolean searchFileInFolder() {
+    static boolean searchFile() {
         return (searchFileByFolder() && searchByFile());
     }
 
@@ -62,7 +63,7 @@ public class FileUtil {
         System.out.println("Please input file name for search");
         String path = scanner.nextLine();
         File file = new File(directoryPath + '\\' + path);
-        if (file.exists()) {
+        if (file.isFile()) {
             found = true;
         }
         return found;
@@ -93,6 +94,7 @@ public class FileUtil {
                         if (line.contains(keyword)) {
                             found = true;
                             System.out.println(file.getName());
+                            break;
                         }
                     }
                 } catch (IOException e) {
@@ -136,6 +138,10 @@ public class FileUtil {
         System.out.println("Please input folder name");
         String folder = scanner.nextLine();
         directory = new File(folder);
+        if (directory.isFile()){
+            System.out.println("Please input correct folder name");
+            return;
+        }
         if (directory.exists()) {
             System.out.println(getSizeOfPackage());
             return;
@@ -162,10 +168,9 @@ public class FileUtil {
         File file = new File(path, fileName);
         try {
             if (file.createNewFile()) {
-                FileWriter fw = new FileWriter(file);
-                BufferedWriter bw = new BufferedWriter(fw);
-                bw.write(content);
-                bw.close();
+                try (BufferedWriter bw = new BufferedWriter(new FileWriter(file))) {
+                    bw.write(content);
+                }
                 System.out.println("File created and content written successfully!");
             } else {
                 System.out.println("File is already exists!");
